@@ -1,0 +1,32 @@
+{
+  "name": "protractor_test",
+  "version": "1.0.0",
+  "description": "test creation",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "bottlejs": "^1.7.0",
+    "eslint": "^6.7.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "faker": "^4.1.0",
+    "fs-finder": "1.8.1",
+    "jasmine-expect": "^3.8.3",
+    "jasmine-node": "^1.14.5",
+    "jasmine-reporters": "2.3.1",
+    "jasmine-spec-reporter": "4.2.1",
+    "moment": "^2.22.1",
+    "moment-timezone": "^0.5.16",
+    "protractor": "^5.4.2",
+    "protractor-console": "^3.0.0",
+    "protractor-jasmine2-screenshot-reporter": "^0.5.0",
+    "protractor-stop-describe-on-failure": "^1.0.3",
+    "protractor-testability-plugin": "^1.2.0",
+    "request": "2.85.0",
+    "strftime": "0.10.0"
+  },
+  "dependencies": {
+    "array-unique": "^0.3.2",
+    "yargs": "^12.0.1"
+  }
+}
