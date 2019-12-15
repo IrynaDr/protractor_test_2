@@ -1,0 +1,39 @@
+{
+"extends": "eslint:recommended",
+  "rules": {
+    "quotes": [
+      2,
+      "double",
+      "avoid-escape"
+    ],
+	"semi": "error",
+	"no-undef": 0,
+	"block-scoped-var": "error",
+	"default-case": "error",
+	"complexity": ["error", { "max": 3 }],
+	"default-param-last": ["error"],
+	"dot-location": ["error","property"],
+	"eqeqeq": ["error", "smart"],
+	"no-case-declarations": "error",
+	"no-floating-decimal": "error",
+	"no-multi-spaces": ["error", { exceptions: { "VariableDeclarator": true } }],
+	"no-multi-str": "error",
+	"no-octal-escape": "error",
+	"no-unused-expressions": "error",
+	"no-warning-comments": "error",
+	"vars-on-top": "error",
+	"max-len": ["error", { "code": 100 }],
+	"array-bracket-spacing": ["error", "never"],
+	"brace-style": "error",
+	"camelcase": "error"
+  },
+  "parser": "esprima",
+  "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+	
+}
