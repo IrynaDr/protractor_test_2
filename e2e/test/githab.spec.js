@@ -1,5 +1,5 @@
-var pageObject          = require('./../services/pages').container.PageObject;
-var mainPage            = pageObject.getMainPage();
+const pageObject          = require('./../services/pages').container.PageObject;
+const mainPage            = pageObject.getMainPage();
 
 describe('Start with protractor', function () {
     it("Open github", () => {
