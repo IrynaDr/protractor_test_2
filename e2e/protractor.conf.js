@@ -96,7 +96,5 @@ exports.config = {
     },
 
     // Close the report after all tests finish
-    afterLaunch: exitCode => {
-        return new Promise( resolve => htmlReporter.afterLaunch(resolve.bind(this, exitCode)));
-    }
+    afterLaunch: exitCode => { return new Promise( resolve => htmlReporter.afterLaunch(resolve.bind(this, exitCode)));}
 };
