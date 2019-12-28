@@ -84,7 +84,7 @@ exports.config = {
     },
 
     // Setup the report before any tests start
-    beforeLaunch: () => { new Promise(resolve => htmlReporter.beforeLaunch(resolve));
+    beforeLaunch: () => { return new Promise(resolve => htmlReporter.beforeLaunch(resolve));
     },
 
     onPrepare: () => {
@@ -97,6 +97,6 @@ exports.config = {
 
     // Close the report after all tests finish
     afterLaunch: exitCode => {
-         new Promise( resolve => htmlReporter.afterLaunch(resolve.bind(this, exitCode)));
+        return new Promise( resolve => htmlReporter.afterLaunch(resolve.bind(this, exitCode)));
     }
 };
