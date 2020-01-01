@@ -1,7 +1,6 @@
+const commonHelper = require('../services/helper/commonHelper.js');
 const pageObject = require('./../services/pages').container.PageObject;
 const mainPage = pageObject.getMainPage();
-const waitLib = require('../services/helper/commonHelper.js');
-
 
 describe('Start with protractor', () => {
     it("Open github", () => {
@@ -9,13 +8,13 @@ describe('Start with protractor', () => {
     });
 
     it("Should see github logo and search", () => {
-        waitLib.secWait(5);
+        commonHelper.visibleWait(mainPage.elLogo, 5);
         expect(mainPage.elLogo.isDisplayed()).toBe(true);
     });
 
     it("Fill search", () => {
         mainPage.fillSearch("protractor");
-        waitLib.secWait(5);
+        commonHelper.secWait(5);
     });
 
     it("Should see repo list element", () => {

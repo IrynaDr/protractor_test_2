@@ -1,9 +1,9 @@
 const protrConf = require('../../protractor.conf.js');
 
 const EC = protractor.ExpectedConditions;
-let messageV = "Element is not visible";
-let messageP = "Element is not present";
-let defTimeout = protrConf.allScriptsTimeout;
+const messageV = "Element is not visible";
+const messageP = "Element is not present";
+const defTimeout = protrConf.allScriptsTimeout;
 
 module.exports = {
 
@@ -13,17 +13,4 @@ module.exports = {
 
     presentWait: (element, timeout = defTimeout) => browser.wait(EC.presenceOf(element), timeout, messageP),
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
+};

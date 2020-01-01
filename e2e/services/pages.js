@@ -10,4 +10,3 @@ bottlejs.factory('PageObject', () => {
 });
 
 module.exports = bottlejs;
-
