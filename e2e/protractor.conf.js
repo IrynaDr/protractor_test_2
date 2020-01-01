@@ -84,13 +84,10 @@ exports.config = {
     },
 
     // Setup the report before any tests start
-    beforeLaunch: function() {
-        return new Promise(function(resolve){
-            htmlReporter.beforeLaunch(resolve);
-        });
+    beforeLaunch: () => { return new Promise(resolve => htmlReporter.beforeLaunch(resolve));
     },
 
-    onPrepare: function() {
+    onPrepare: () => {
 	    browser.ignoreSynchronization = true;
 
         jasmine.getEnv().addReporter(htmlReporter);
@@ -99,9 +96,5 @@ exports.config = {
     },
 
     // Close the report after all tests finish
-    afterLaunch: function(exitCode) {
-        return new Promise(function(resolve){
-            htmlReporter.afterLaunch(resolve.bind(this, exitCode));
-        });
-    }
+    afterLaunch: exitCode => { return new Promise( resolve => htmlReporter.afterLaunch(resolve.bind(this, exitCode)));}
 };

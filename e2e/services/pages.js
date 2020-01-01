@@ -1,9 +1,9 @@
-var bottlejs  = require('bottlejs').pop('test');
+const bottlejs  = require('bottlejs').pop('test');
 
-bottlejs.factory('PageObject', function () {
+bottlejs.factory('PageObject', () => {
     return {
-        getMainPage: function () {
-		    var mainPage = require('./main/main.po');
+        getMainPage: () => {
+		    let mainPage = require('./main/main.po');
 		    return new mainPage();
 	    }
     }
