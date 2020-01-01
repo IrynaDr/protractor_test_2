@@ -1,4 +1,4 @@
-const protrConf = require('../test/protractor.conf.js');
+const protrConf = require('../../protractor.conf.js');
 
 const EC = protractor.ExpectedConditions;
 let messageV = "Element is not visible";
