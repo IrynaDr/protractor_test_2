@@ -14,7 +14,7 @@ describe('Start with protractor', () => {
 
     it("Fill search", () => {
         mainPage.fillSearch("protractor");
-        commonHelper.secWait(5);
+        commonHelper.visibleWait(mainPage.repoList);
     });
 
     it("Should see repo list element", () => {
