@@ -8,6 +8,8 @@ class MainPage {
         this.elLogo = $('header .octicon-mark-github');
 
         this.txtSearch = $('.js-chromeless-input-container .js-jump-to-field');
+
+        this.repoList = $('.repo-list');
     }
 
     //--------------------------------------------------------------------------
