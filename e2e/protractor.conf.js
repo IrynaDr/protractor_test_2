@@ -45,8 +45,8 @@ exports.config = {
     capabilities: {
         'browserName': 'chrome',
         'chromeOptions': {
-            args: ['--disable-touch-touch-drag-drop','--disable-extensions', '--disable-infobars', '--incognito',
-                '--no-sandbox', '--test-type=browser', '--start-maximized', '--window-size=1600,1200'],
+            args: ['--disable-infobars', '--incognito',
+                '--no-sandbox', '--test-type=browser', '--start-maximized'],
             prefs: {
                 'download': {
                     'prompt_for_download': false,
