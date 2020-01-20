@@ -70,8 +70,8 @@ exports.config = {
         'jasmine-matchers'
     ],
 
-    //specs: ['./test/githab.spec.js'],
-    specs: ['./sbzend.ssls/test1.spec.js'],
+    //specs: ['./test/github/github.spec.js'],
+    specs: ['./test/sbzend.ssls/authorization_page.spec.js'],
 
     allScriptsTimeout: 45000,
 

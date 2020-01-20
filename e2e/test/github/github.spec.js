@@ -1,5 +1,5 @@
-const commonHelper = require('../../services/helper/commonHelper.js');
-const pageObject = require('../../services/pages').container.PageObject;
+const commonHelper = require('../../services/helpers/commonHelper.js');
+const pageObject = require('../../services/pages').container.PageObjectGithub;
 const mainPage = pageObject.getMainPage();
 
 describe('Start with protractor', () => {
