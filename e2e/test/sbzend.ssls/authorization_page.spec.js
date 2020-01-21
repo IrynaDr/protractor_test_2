@@ -1,6 +1,9 @@
 const commonHelper = require('../../services/helpers/commonHelper.js');
 const pageObject = require('../../services/pages').container.PageObjectSbzend;
 const homePage = pageObject.getHomePage();
+const authPage = pageObject.getAuthorizationPage();
+const falseUser = 'automation+@gmail.com';
+const falsePassword = '1234*56';
 
 describe('Authorization page. Not registered user.', () => {
     it("Open Home page.", () => {
@@ -9,16 +12,20 @@ describe('Authorization page. Not registered user.', () => {
     });
 
     it("Click on LOG IN text.", () => {
-        homePage.clickLogin();
+        homePage.btnLogIn();
         commonHelper.secWait(5);
     });
 
     it("On the authorization page enter not registered email and any password.", () => {
-
+        authPage.enterText(authPage.txtEmail, falseUser);
+        commonHelper.secWait(5);
+        authPage.enterText(authPage.txtPassword, falsePassword);
+        commonHelper.secWait(5);
     });
 
     it("Click Login button.", () => {
-
+        authPage.btnLogIn();
+        commonHelper.secWait(5);
     });
 
 

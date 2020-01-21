@@ -4,7 +4,7 @@ class HomePage {
     // Elements
     //--------------------------------------------------------------------------
     constructor() {
-        this.btnlogIn = $('[ui-sref="authorize.index"]');
+        this.btnLogIn = $('[ui-sref="authorize.index"]');
 
         this.btnHelpdesk = $('[href="/knowledgebase/"]');
 
@@ -15,7 +15,7 @@ class HomePage {
     // Functions
     //--------------------------------------------------------------------------
     clickLogin () {
-       this.btnlogIn.click();
+       this.btnLogIn.click();
     }
 };
 

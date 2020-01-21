@@ -5,7 +5,11 @@ class AuthorizationPage {
     //--------------------------------------------------------------------------
     constructor() {
 
-        //todo
+     this.txtEmail = element(by.model('form.email'));
+
+     this.txtPassword = element(by.model('form.password'));
+
+     this.btnLogin = $('.btn-box .primary');
 
     }
 
@@ -13,7 +17,14 @@ class AuthorizationPage {
     // Functions
     //--------------------------------------------------------------------------
 
-    //todo
+    enterText (el, text) {
+        el.sendKeys(text);
+    }
+
+     clickLogin () {
+           this.btnLogIn.click();
+        }
+
 
 };
 
