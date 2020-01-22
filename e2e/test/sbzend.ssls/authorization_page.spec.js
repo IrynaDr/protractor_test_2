@@ -4,6 +4,7 @@ const homePage = pageObject.getHomePage();
 const authPage = pageObject.getAuthorizationPage();
 const falseEmail = 'automation+@gmail.com';
 const falsePassword = '123*456'
+const errorMessage = 'Uh oh! Email or password is incorrect';
 
 describe('Authorization page. Not registered user.', () => {
     it('Open Home page.', () => {
@@ -30,7 +31,7 @@ describe('Authorization page. Not registered user.', () => {
     it('After click on "eye" icon in password field, password should be displayed.', () => {
         authPage.clickEyeIcon();
         commonHelper.secWait(3);
-        //expect(.isDisplayed()).toBe(falsePassword);
+        expect((authPage.txtPassword).getAttribute('value')).toEqual(falsePassword);
     });
     it('Click Login button.', () => {
         authPage.clickLogIn();
@@ -38,6 +39,7 @@ describe('Authorization page. Not registered user.', () => {
     });
     it('If user not registered, errors messages such as: “Uh oh! Email or password is incorrect” should be displayed.', () => {
         expect(authPage.txtNotify.isDisplayed()).toBe(true);
+        expect(authPage.txtNotify.getText()).toEqual(errorMessage);
     });
 
 });
