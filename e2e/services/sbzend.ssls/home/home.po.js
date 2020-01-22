@@ -4,18 +4,20 @@ class HomePage {
     // Elements
     //--------------------------------------------------------------------------
     constructor() {
-        this.btnlogIn = $('[ui-sref="authorize.index"]');
+        this.btnLogIn = $('[ui-sref="authorize.index"]');
 
         this.btnHelpdesk = $('[href="/knowledgebase/"]');
 
         this.btnViewProfile = $('[href="/user/profile"]');
+
+        this.homePageMain = $('.ssls-home-page');
     }
 
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
-    clickLogin () {
-       this.btnlogIn.click();
+    clickLogIn () {
+       this.btnLogIn.click();
     }
 };
 
