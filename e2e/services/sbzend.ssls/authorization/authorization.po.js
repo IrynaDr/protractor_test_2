@@ -5,38 +5,37 @@ class AuthorizationPage {
     //--------------------------------------------------------------------------
     constructor() {
 
-    this.txtEmail = element(by.model('form.email'));
+        this.txtEmail = element(by.model('form.email'));
 
-    this.txtPassword = element(by.model('form.password'));
+        this.txtPassword = element(by.model('form.password'));
 
-    this.btnLogIn = $('.btn-box .primary');
+        this.btnLogIn = $('.primary');
 
-    this.authPageTitle = $('.page-title-box');
+        this.authPageTitle = $('.page-title-box');
 
-    this.txtWelcome = $('.authorization-content .text');
+        this.txtWelcome = $('.authorization-content .text');
 
-    this.eyeIcon = $('.icon.icon-eye');
+        this.eyeIcon = $('[ng-click*="showPassword"]');
 
-    this.txtNotify = $('.noty_text');
+        this.eyeIconOn = $('[class*="icon-eye ng-hide"]');
+
+        this.txtNotify = $('.noty_text');
 
     }
-
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
+        enterText (element, text) {
+            element.sendKeys(text);
+        }
 
-    enterText (element, text) {
-        element.sendKeys(text);
-    }
+        clickLogIn () {
+           this.btnLogIn.click();
+        }
 
-    clickLogIn () {
-       this.btnLogIn.click();
-    }
-
-    clickEyeIcon (){
-       this.eyeIcon.click();
-    }
-
+        clickEyeIcon () {
+           this.eyeIcon.click();
+        }
 };
 
 module.exports = AuthorizationPage;

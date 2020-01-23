@@ -9,39 +9,43 @@ const errorMessage = 'Uh oh! Email or password is incorrect';
 describe('Authorization page. Not registered user.', () => {
     it('Open Home page.', () => {
         browser.get('https://www.sbzend.ssls.com');
-        commonHelper.secWait(5);
+        commonHelper.visibleWait(homePage.homePageMain, 5);
     });
+
     it('Home page has to be opened.', () => {
         expect(homePage.homePageMain.isDisplayed()).toBe(true);
     });
+
     it('Click on LOG IN text.', () => {
         homePage.clickLogIn();
-        commonHelper.secWait(3);
+        commonHelper.visibleWait(authPage.authPageTitle);
     });
+
     it('Authorization page has to be opened.', () => {
         expect(authPage.authPageTitle.isDisplayed()).toBe(true);
         expect(authPage.txtWelcome.isDisplayed()).toBe(true);
     });
+
     it('On the authorization page enter not registered email and any password.', () => {
         authPage.enterText(authPage.txtEmail, falseEmail);
-        commonHelper.secWait(3);
         authPage.enterText(authPage.txtPassword, falsePassword);
-        commonHelper.secWait(3);
     });
+
     it('After click on "eye" icon in password field, password should be displayed.', () => {
         authPage.clickEyeIcon();
-        commonHelper.secWait(3);
-        expect((authPage.txtPassword).getAttribute('value')).toEqual(falsePassword);
+        commonHelper.presentWait(authPage.eyeIconOn);
+        expect(authPage.txtPassword.getAttribute('value')).toEqual(falsePassword);
     });
+
     it('Click Login button.', () => {
         authPage.clickLogIn();
-        commonHelper.secWait(5);
+        commonHelper.visibleWait(authPage.txtNotify);
     });
+
     it('If user not registered, errors messages such as: “Uh oh! Email or password is incorrect” should be displayed.', () => {
         expect(authPage.txtNotify.isDisplayed()).toBe(true);
         expect(authPage.txtNotify.getText()).toEqual(errorMessage);
     });
-
 });
 /*
 describe('Authorization page (Welcome back!).', () => {
