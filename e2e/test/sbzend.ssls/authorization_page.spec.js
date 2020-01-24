@@ -72,8 +72,6 @@ describe('Authorization page (Welcome back!).', () => {
         authPage.fillPassword(config.firstUser.password);
         authPage.clickEyeIcon();
         commonHelper.presentWait(authPage.eyeIconOn);
-
-        commonHelper.secWait(5);
     });
 
     it('After click on "eye" icon for password field, password should be displayed.', () => {
@@ -86,7 +84,7 @@ describe('Authorization page (Welcome back!).', () => {
     });
 
     it('"Log in" button has to be changed on "User@email" button (with dropdown menu) from the left side in the Header of the page.', () => {
-         expect(homePage.btnProfileEmail.getText()).toEqual(config.emailLogin);
+         expect(homePage.btnProfileEmail.getText()).toEqual(config.firstUser.email);
          expect(homePage.btnProfile.isDisplayed()).toBe(true);
          homePage.clickBtnProfile();
          expect(homePage.btnProfileOpened.isDisplayed()).toBe(true);
