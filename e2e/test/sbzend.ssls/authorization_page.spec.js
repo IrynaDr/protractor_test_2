@@ -47,6 +47,7 @@ describe('Authorization page. Not registered user.', () => {
         expect(authPage.txtNotify.getText()).toEqual(errorMessage);
     });
 });
+
 describe('Authorization page (Welcome back!).', () => {
     it("Open Home page.", () => {
         commonHelper.openHomePage();
@@ -79,10 +80,13 @@ describe('Authorization page (Welcome back!).', () => {
 
     it('Click Login button.', () => {
         authPage.clickLogIn();
-        commonHelper.secWait(5); //will be changed
+        commonHelper.presentWait(homePage.btnProfileEmail);
     });
 
     it('"Log in" button has to be changed on "User@email" button (with dropdown menu) from the left side in the Header of the page.', () => {
-
+         expect(homePage.btnProfileEmail.getText()).toEqual(config.emailLogin);
+         expect(homePage.btnProfile.isDisplayed()).toBe(true);
+         homePage.clickBtnProfile();
+         expect(homePage.btnProfileOpened.isDisplayed()).toBe(true);
     });
 });

@@ -13,6 +13,13 @@ class HomePage {
         this.btnViewProfile = $('[href="/user/profile"]');
 
         this.homeHeading = $('[id="certs"] .ssls-heading');
+
+        this.btnProfileEmail = $('.profile-box .user-btn');
+
+        this.btnProfile = $('.dropdown-btn');
+
+        this.btnProfileOpened = $('[style="display: block;"]');
+
     }
     //--------------------------------------------------------------------------
     // Functions
@@ -20,6 +27,10 @@ class HomePage {
     clickLogIn () {
        commonHelper.visibleWait(this.btnLogIn);
        this.btnLogIn.click();
+    }
+
+    clickBtnProfile () {
+       this.btnProfile.click();
     }
 };
 
