@@ -1,44 +1,61 @@
 const commonHelper = require('../../services/helpers/commonHelper.js');
-const pageObject = require('../../services/pages').container.PageObjectSbzend;
+const pageObject = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
 const homePage = pageObject.getHomePage();
 const authPage = pageObject.getAuthorizationPage();
-const falseUser = 'automation+@gmail.com';
-const falsePassword = '1234*56';
+const falseEmail = 'automation+@gmail.com';
+const falsePassword = '123*456'
+const errorMessage = 'Uh oh! Email or password is incorrect';
 
 describe('Authorization page. Not registered user.', () => {
-    it("Open Home page.", () => {
+    it('Open Home page.', () => {
         browser.get('https://www.sbzend.ssls.com');
-        commonHelper.secWait(5);
+        commonHelper.visibleWait(homePage.homePageMain, 5);
     });
 
-    it("Click on LOG IN text.", () => {
-        homePage.btnLogIn();
-        commonHelper.secWait(5);
+    it('Home page has to be opened.', () => {
+        expect(homePage.homePageMain.isDisplayed()).toBe(true);
     });
 
-    it("On the authorization page enter not registered email and any password.", () => {
-        authPage.enterText(authPage.txtEmail, falseUser);
-        commonHelper.secWait(5);
+    it('Click on LOG IN text.', () => {
+        homePage.clickLogIn();
+        commonHelper.visibleWait(authPage.authPageTitle);
+        commonHelper.visibleWait(authPage.txtWelcome);
+    });
+
+    it('Authorization page has to be opened.', () => {
+        expect(authPage.authPageTitle.isDisplayed()).toBe(true);
+        expect(authPage.txtWelcome.isDisplayed()).toBe(true);
+    });
+
+    it('On the authorization page enter not registered email and any password.', () => {
+        authPage.enterText(authPage.txtEmail, falseEmail);
         authPage.enterText(authPage.txtPassword, falsePassword);
-        commonHelper.secWait(5);
     });
 
-    it("Click Login button.", () => {
-        authPage.btnLogIn();
-        commonHelper.secWait(5);
+    it('After click on "eye" icon in password field, password should be displayed.', () => {
+        authPage.clickEyeIcon();
+        commonHelper.presentWait(authPage.eyeIconOn);
+        expect(authPage.txtPassword.getAttribute('value')).toEqual(falsePassword);
     });
 
+    it('Click Login button.', () => {
+        authPage.clickLogIn();
+        commonHelper.visibleWait(authPage.txtNotify);
+    });
 
+    it('If user not registered, errors messages such as: “Uh oh! Email or password is incorrect” should be displayed.', () => {
+        expect(authPage.txtNotify.isDisplayed()).toBe(true);
+        expect(authPage.txtNotify.getText()).toEqual(errorMessage);
+    });
 });
 /*
 describe('Authorization page (Welcome back!).', () => {
     it("Open Home page.", () => {
-        browser.get('https://www.sbzend.ssls.com');
-        commonHelper.secWait(5);
+
     });
 
     it("Click on LOG IN text.", () => {
-        mainPage.clickLogin();
+
     });
 
     it("On the authorization page enter valid email and password for previously registered user"
