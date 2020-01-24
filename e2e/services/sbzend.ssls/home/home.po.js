@@ -18,10 +18,10 @@ class HomePage {
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
-        clickLogIn () {
-           commonHelper.visibleWait(this.btnLogIn, 5);
-           this.btnLogIn.click();
-        }
+    clickLogIn () {
+       commonHelper.visibleWait(this.btnLogIn, 5);
+       this.btnLogIn.click();
+    }
 };
 
 module.exports = HomePage;

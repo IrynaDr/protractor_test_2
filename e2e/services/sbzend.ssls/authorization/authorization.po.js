@@ -25,21 +25,21 @@ class AuthorizationPage {
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
-        fillEmail (text) {
-            this.txtEmail.sendKeys(text);
-        }
+    fillEmail (text) {
+        this.txtEmail.sendKeys(text);
+    }
 
-        fillPassword (text) {
-            this.txtPassword.sendKeys(text);
-        }
+    fillPassword (text) {
+        this.txtPassword.sendKeys(text);
+    }
 
-        clickLogIn () {
-           this.btnLogIn.click();
-        }
+    clickLogIn () {
+       this.btnLogIn.click();
+    }
 
-        clickEyeIcon () {
-           this.eyeIcon.click();
-        }
+    clickEyeIcon () {
+       this.eyeIcon.click();
+    }
 };
 
 module.exports = AuthorizationPage;

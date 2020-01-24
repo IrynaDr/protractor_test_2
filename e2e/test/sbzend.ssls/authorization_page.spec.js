@@ -17,7 +17,6 @@ describe('Authorization page. Not registered user.', () => {
 
     it('Click on LOG IN text.', () => {
         homePage.clickLogIn();
-        commonHelper.visibleWait(authPage.authPageTitle);
         commonHelper.visibleWait(authPage.txtWelcome);
     });
 
@@ -47,17 +46,18 @@ describe('Authorization page. Not registered user.', () => {
         expect(authPage.txtNotify.getText()).toEqual(errorMessage);
     });
 });
-/*
+
 describe('Authorization page (Welcome back!).', () => {
     it("Open Home page.", () => {
-
+        commonHelper.openHomePage();
     });
 
     it("Click on LOG IN text.", () => {
-
+        homePage.clickLogIn();
+        commonHelper.visibleWait(authPage.txtWelcome);
     });
 
-    it("On the authorization page enter valid email and password for previously registered user"
+    it("On the authorization page enter valid email and password for previously registered user"/n
     "(to check entered password, click on 'eye' icon in password field.)", () => {
 
     });
@@ -65,7 +65,4 @@ describe('Authorization page (Welcome back!).', () => {
     it("Click Login button.", () => {
 
     });
-
-
 });
-*/
