@@ -2,6 +2,7 @@ const commonHelper  = require('../../services/helpers/commonHelper.js');
 const pageObject    = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
 const homePage      = pageObject.getHomePage();
 const authPage      = pageObject.getAuthorizationPage();
+const config        = require('../../services/configs/config.data.json');
 const falseEmail    = 'automation+@gmail.com';
 const falsePassword = '123*456'
 const errorMessage  = 'Uh oh! Email or password is incorrect';
@@ -46,7 +47,7 @@ describe('Authorization page. Not registered user.', () => {
         expect(authPage.txtNotify.getText()).toEqual(errorMessage);
     });
 });
-
+/*
 describe('Authorization page (Welcome back!).', () => {
     it("Open Home page.", () => {
         commonHelper.openHomePage();
@@ -57,7 +58,7 @@ describe('Authorization page (Welcome back!).', () => {
         commonHelper.visibleWait(authPage.txtWelcome);
     });
 
-    it("On the authorization page enter valid email and password for previously registered user"/n
+    it("On the authorization page enter valid email and password for previously registered user"
     "(to check entered password, click on 'eye' icon in password field.)", () => {
 
     });
@@ -66,3 +67,4 @@ describe('Authorization page (Welcome back!).', () => {
 
     });
 });
+*/

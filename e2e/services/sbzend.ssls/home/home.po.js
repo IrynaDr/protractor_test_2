@@ -1,5 +1,6 @@
 const commonHelper = require('../../helpers/commonHelper.js');
-
+const protrConf    = require('../../../protractor.conf.js');
+const defTimeout   = protrConf.allScriptsTimeout;
 class HomePage {
 
     //--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ class HomePage {
     // Functions
     //--------------------------------------------------------------------------
     clickLogIn () {
-       commonHelper.visibleWait(this.btnLogIn, 5);
+       commonHelper.visibleWait(this.btnLogIn, defTimeout);
        this.btnLogIn.click();
     }
 };
