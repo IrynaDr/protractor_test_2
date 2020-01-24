@@ -86,7 +86,5 @@ describe('Authorization page (Welcome back!).', () => {
     it('"Log in" button has to be changed on "User@email" button (with dropdown menu) from the left side in the Header of the page.', () => {
          expect(homePage.btnProfileEmail.getText()).toEqual(config.firstUser.email);
          expect(homePage.btnProfile.isDisplayed()).toBe(true);
-         homePage.clickBtnProfile();
-         expect(homePage.btnProfileOpened.isDisplayed()).toBe(true);
     });
 });
