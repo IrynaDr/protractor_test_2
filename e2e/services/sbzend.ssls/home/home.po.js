@@ -13,7 +13,7 @@ class HomePage {
 
         this.btnViewProfile = $('[href="/user/profile"]');
 
-        this.homePageMain = $('.ssls-home-page');
+        this.homeHeading = $('[id="certs"] .ssls-heading');
     }
     //--------------------------------------------------------------------------
     // Functions

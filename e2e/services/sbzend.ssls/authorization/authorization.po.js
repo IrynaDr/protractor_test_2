@@ -25,8 +25,12 @@ class AuthorizationPage {
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
-        enterText (element, text) {
-            element.sendKeys(text);
+        fillEmail (text) {
+            this.txtEmail.sendKeys(text);
+        }
+
+        fillPassword (text) {
+            this.txtPassword.sendKeys(text);
         }
 
         clickLogIn () {

@@ -1,4 +1,3 @@
-
 const HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
 const DescribeFailureReporter = require('protractor-stop-describe-on-failure');
@@ -6,8 +5,8 @@ const DescribeFailureReporter = require('protractor-stop-describe-on-failure');
 const specReporter = new SpecReporter({
     displayStacktrace: 'all',       // display stacktrace for each failed assertion, values: (all|specs|summary|none)
     displayFailuresSummary: false,  // display summary of all failures after execution
-    displayPendingSummary: true,   // display summary of all pending specs after execution
-    displaySuccessfulSpec: true,   // display each successful spec
+    displayPendingSummary: true,    // display summary of all pending specs after execution
+    displaySuccessfulSpec: true,    // display each successful spec
     displayFailedSpec: true,        // display each failed spec
     displayPendingSpec: false,      // display each pending spec
     displaySpecDuration: true,      // display each spec duration
@@ -57,9 +56,6 @@ exports.config = {
     },
 
     plugins: [{
-        package: 'protractor-testability-plugin',
-        path: '../node_modules/protractor-testability-plugin'
-    }, {
         package: 'protractor-console',
         logLevels: ['severe'],
         path: '../node_modules/protractor-console'
@@ -81,9 +77,7 @@ exports.config = {
         showColors: true,
         defaultTimeoutInterval: 45000,
         isVerbose: true,
-        print: function() {},
-        grep: '@local',
-        invertGrep: true
+        print: function() {}
     },
 
     // Setup the report before any tests start

@@ -1,19 +1,18 @@
-const commonHelper = require('../../services/helpers/commonHelper.js');
-const pageObject = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
-const homePage = pageObject.getHomePage();
-const authPage = pageObject.getAuthorizationPage();
-const falseEmail = 'automation+@gmail.com';
+const commonHelper  = require('../../services/helpers/commonHelper.js');
+const pageObject    = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
+const homePage      = pageObject.getHomePage();
+const authPage      = pageObject.getAuthorizationPage();
+const falseEmail    = 'automation+@gmail.com';
 const falsePassword = '123*456'
-const errorMessage = 'Uh oh! Email or password is incorrect';
+const errorMessage  = 'Uh oh! Email or password is incorrect';
 
 describe('Authorization page. Not registered user.', () => {
     it('Open Home page.', () => {
-        browser.get('https://www.sbzend.ssls.com');
-        commonHelper.visibleWait(homePage.homePageMain, 5);
+        commonHelper.openHomePage();
     });
 
     it('Home page has to be opened.', () => {
-        expect(homePage.homePageMain.isDisplayed()).toBe(true);
+        expect(homePage.homeHeading.isDisplayed()).toBe(true);
     });
 
     it('Click on LOG IN text.', () => {
@@ -28,8 +27,8 @@ describe('Authorization page. Not registered user.', () => {
     });
 
     it('On the authorization page enter not registered email and any password.', () => {
-        authPage.enterText(authPage.txtEmail, falseEmail);
-        authPage.enterText(authPage.txtPassword, falsePassword);
+        authPage.fillEmail(falseEmail);
+        authPage.fillPassword(falsePassword);
     });
 
     it('After click on "eye" icon in password field, password should be displayed.', () => {
