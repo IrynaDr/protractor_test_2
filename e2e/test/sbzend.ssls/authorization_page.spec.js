@@ -68,14 +68,16 @@ describe('Authorization page (Welcome back!).', () => {
     });
 
     it('On the authorization page enter valid email and password for previously registered user (to check entered password, click on "eye" icon in password field.)', () => {
-        authPage.fillEmail(config.emailLogin);
-        authPage.fillPassword(config.passwordLogin);
+        authPage.fillEmail(config.firstUser.email);
+        authPage.fillPassword(config.firstUser.password);
         authPage.clickEyeIcon();
         commonHelper.presentWait(authPage.eyeIconOn);
+
+        commonHelper.secWait(5);
     });
 
     it('After click on "eye" icon for password field, password should be displayed.', () => {
-        expect(authPage.txtPassword.getAttribute('value')).toEqual(config.passwordLogin);
+        expect(authPage.txtPassword.getAttribute('value')).toEqual(config.firstUser.password);
     });
 
     it('Click Login button.', () => {
