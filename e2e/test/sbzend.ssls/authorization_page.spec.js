@@ -80,7 +80,7 @@ describe('Authorization page (Welcome back!).', () => {
 
     it('Click Login button.', () => {
         authPage.clickLogIn();
-        commonHelper.presentWait(homePage.btnProfileEmail);
+        commonHelper.visibleWait(homePage.btnProfileEmail);
     });
 
     it('"Log in" button has to be changed on "User@email" button (with dropdown menu) from the left side in the Header of the page.', () => {
