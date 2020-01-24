@@ -15,10 +15,10 @@ class MainPage {
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
-        fillSearch (text) {
-            this.txtSearch.sendKeys(text);
-            this.txtSearch.sendKeys(protractor.Key.ENTER);
-        };
+    fillSearch (text) {
+        this.txtSearch.sendKeys(text);
+        this.txtSearch.sendKeys(protractor.Key.ENTER);
+    };
 };
 
 module.exports = MainPage;

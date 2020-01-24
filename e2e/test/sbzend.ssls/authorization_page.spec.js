@@ -47,24 +47,42 @@ describe('Authorization page. Not registered user.', () => {
         expect(authPage.txtNotify.getText()).toEqual(errorMessage);
     });
 });
-/*
 describe('Authorization page (Welcome back!).', () => {
     it("Open Home page.", () => {
         commonHelper.openHomePage();
     });
 
-    it("Click on LOG IN text.", () => {
+    it('Home page has to be opened.', () => {
+        expect(homePage.homeHeading.isDisplayed()).toBe(true);
+    });
+
+    it('Click on LOG IN text.', () => {
         homePage.clickLogIn();
         commonHelper.visibleWait(authPage.txtWelcome);
     });
 
-    it("On the authorization page enter valid email and password for previously registered user"
-    "(to check entered password, click on 'eye' icon in password field.)", () => {
-
+    it('Authorization page has to be opened.', () => {
+        expect(authPage.authPageTitle.isDisplayed()).toBe(true);
+        expect(authPage.txtWelcome.isDisplayed()).toBe(true);
     });
 
-    it("Click Login button.", () => {
+    it('On the authorization page enter valid email and password for previously registered user (to check entered password, click on "eye" icon in password field.)', () => {
+        authPage.fillEmail(config.emailLogin);
+        authPage.fillPassword(config.passwordLogin);
+        authPage.clickEyeIcon();
+        commonHelper.presentWait(authPage.eyeIconOn);
+    });
+
+    it('After click on "eye" icon for password field, password should be displayed.', () => {
+        expect(authPage.txtPassword.getAttribute('value')).toEqual(config.passwordLogin);
+    });
+
+    it('Click Login button.', () => {
+        authPage.clickLogIn();
+        commonHelper.secWait(5); //will be changed
+    });
+
+    it('"Log in" button has to be changed on "User@email" button (with dropdown menu) from the left side in the Header of the page.', () => {
 
     });
 });
-*/
