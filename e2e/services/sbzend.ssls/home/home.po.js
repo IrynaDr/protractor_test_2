@@ -20,6 +20,7 @@ class HomePage {
 
         this.btnProfileOpened = $('[style="display: block;"]');
 
+        this.btnViewProfile = $('[ui-sref="user.profile"]');
     }
     //--------------------------------------------------------------------------
     // Functions
@@ -31,6 +32,10 @@ class HomePage {
 
     clickBtnProfile () {
        this.btnProfile.click();
+    }
+
+    clickBtnViewProfile () {
+        this.btnViewProfile.click();
     }
 };
 

@@ -20,7 +20,6 @@ class AuthorizationPage {
         this.eyeIconOn = $('[class*="icon-eye ng-hide"]');
 
         this.txtNotify = $('.noty_text');
-
     }
     //--------------------------------------------------------------------------
     // Functions

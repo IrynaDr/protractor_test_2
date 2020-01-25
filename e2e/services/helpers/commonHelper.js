@@ -4,7 +4,7 @@ const EC          = protractor.ExpectedConditions;
 const defTimeout  = protrConf.allScriptsTimeout;
 const messageV    = "Element is not visible";
 const messageP    = "Element is not present";
-const homeHeading = $('[id="certs"] .ssls-heading');
+const homeHeading = $('[id="certs"] .ssls-heading'); //home.po
 
 module.exports = {
 
