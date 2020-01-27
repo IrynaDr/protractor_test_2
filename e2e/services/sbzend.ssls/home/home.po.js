@@ -25,6 +25,11 @@ class HomePage {
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
+    openHomePage () {
+        browser.get(browser.params.baseUrl);
+        commonHelper.visibleWait(this.homeHeading);
+    }
+
     clickLogIn () {
        commonHelper.visibleWait(this.btnLogIn);
        this.btnLogIn.click();

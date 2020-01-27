@@ -4,7 +4,6 @@ const EC          = protractor.ExpectedConditions;
 const defTimeout  = protrConf.allScriptsTimeout;
 const messageV    = "Element is not visible";
 const messageP    = "Element is not present";
-const homeHeading = $('[id="certs"] .ssls-heading'); //home.po
 
 module.exports = {
 
@@ -14,8 +13,9 @@ module.exports = {
 
     presentWait: (element, timeout = defTimeout) => browser.wait(EC.presenceOf(element), timeout, messageP),
 
-    openHomePage: function () {
-        browser.get(config.baseUrl);
-        this.visibleWait(homeHeading);
+    clearAllData: () => {
+        browser.executeScript('window.sessionStorage.clear();');
+        browser.executeScript('window.localStorage.clear();');
+        browser.manage().deleteAllCookies();
     }
 };

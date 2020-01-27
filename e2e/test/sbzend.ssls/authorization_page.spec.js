@@ -2,14 +2,18 @@ const commonHelper  = require('../../services/helpers/commonHelper.js');
 const pageObject    = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
 const homePage      = pageObject.getHomePage();
 const authPage      = pageObject.getAuthorizationPage();
-const config        = require('../../services/configs/config.data.json');
 const falseEmail    = 'automation+@gmail.com';
 const falsePassword = '123*456'
 const errorMessage  = 'Uh oh! Email or password is incorrect';
 
 describe('Authorization page. Not registered user.', () => {
+
+    afterAll(function () {
+        commonHelper.clearAllData();
+    });
+
     it('Open Home page.', () => {
-        commonHelper.openHomePage();
+        homePage.openHomePage();
     });
 
     it('Home page has to be opened.', () => {
@@ -49,8 +53,13 @@ describe('Authorization page. Not registered user.', () => {
 });
 
 describe('Authorization page (Welcome back!).', () => {
+
+    afterAll(function () {
+        commonHelper.clearAllData();
+    });
+
     it("Open Home page.", () => {
-        commonHelper.openHomePage();
+        homePage.openHomePage();
     });
 
     it('Home page has to be opened.', () => {
@@ -68,8 +77,8 @@ describe('Authorization page (Welcome back!).', () => {
     });
 
     it('On the authorization page enter valid email and password for previously registered user (to check entered password, click on "eye" icon in password field.)', () => {
-        authPage.fillEmail(config.firstUser.email);
-        authPage.fillPassword(config.firstUser.password);
+        authPage.fillEmail(browser.params.firstUser.email);
+        authPage.fillPassword(browser.params.firstUser.password);
         authPage.clickEyeIcon();
         commonHelper.presentWait(authPage.eyeIconOn);
     });

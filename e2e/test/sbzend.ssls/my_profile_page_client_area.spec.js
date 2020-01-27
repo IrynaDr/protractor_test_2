@@ -3,20 +3,24 @@ const pageObject    = require('../../services/sbzend.ssls/pages').container.Page
 const homePage      = pageObject.getHomePage();
 const authPage      = pageObject.getAuthorizationPage();
 const profilePage   = pageObject.getProfilePage();
-const config        = require('../../services/configs/config.data.json');
 let nameProfileTest, emailProfileTest, phoneProfileTest, addressProfileTest, supportPinProfileTest, newsletterProfileTest;
 
 describe('My profile page. Client area.', () => {
     describe('Precondition.', () => {
+
+        afterAll(function () {
+            commonHelper.clearAllData();
+        });
+
         it('Open Home page.', () => {
-            commonHelper.openHomePage();
+            homePage.openHomePage();
         });
 
         it('Log in to the user’s account.', () => {
             homePage.clickLogIn();
             commonHelper.visibleWait(authPage.txtWelcome);
-            authPage.fillEmail(config.firstUser.email);
-            authPage.fillPassword(config.firstUser.password);
+            authPage.fillEmail(browser.params.firstUser.email);
+            authPage.fillPassword(browser.params.firstUser.password);
             authPage.clickLogIn();
             commonHelper.visibleWait(homePage.btnProfileEmail);
         });
@@ -44,8 +48,8 @@ describe('My profile page. Client area.', () => {
     });
     describe('Steps.', () => {
         it('Log in to Account.', () => {
-            authPage.fillEmail(config.firstUser.email);
-            authPage.fillPassword(config.firstUser.password);
+            authPage.fillEmail(browser.params.firstUser.email);
+            authPage.fillPassword(browser.params.firstUser.password);
             authPage.clickLogIn();
             commonHelper.visibleWait(homePage.btnProfileEmail);
         });
