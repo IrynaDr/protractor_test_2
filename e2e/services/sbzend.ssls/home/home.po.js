@@ -35,7 +35,7 @@ class HomePage {
        this.btnLogIn.click();
     }
 
-    clickBtnProfile () {
+    clickProfile () {
        this.btnProfile.click();
     }
 

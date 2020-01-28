@@ -10,8 +10,6 @@ class ProfilePage {
 
         this.btnProfile = $('.dropdown-btn');
 
-        this.btnProfileOpened = $('[style="display: block;"]');
-
         this.btnLogOut = $('[ng-click="$ctrl.logout()"]');
 
         this.nameProfile = $(`.description [ng-hide="activeRow === 'name'"]`);
@@ -31,7 +29,7 @@ class ProfilePage {
     //--------------------------------------------------------------------------
     LogOut () {
         this.btnProfile.click();
-        commonHelper.visibleWait(this.btnProfileOpened);
+        commonHelper.visibleWait(this.btnLogOut);
         this.btnLogOut.click();
     }
 };

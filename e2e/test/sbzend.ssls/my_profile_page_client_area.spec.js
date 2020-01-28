@@ -19,14 +19,12 @@ describe('My profile page. Client area.', () => {
         it('Log in to the user’s account.', () => {
             homePage.clickLogIn();
             commonHelper.visibleWait(authPage.txtWelcome);
-            authPage.fillEmail(browser.params.firstUser.email);
-            authPage.fillPassword(browser.params.firstUser.password);
-            authPage.clickLogIn();
+            authPage.logIn();
             commonHelper.visibleWait(homePage.btnProfileEmail);
         });
 
         it('Open “View profile” page.', () => {
-            homePage.clickBtnProfile();
+            homePage.clickProfile();
             commonHelper.visibleWait(homePage.btnProfileOpened);
             homePage.clickBtnViewProfile();
             commonHelper.visibleWait(profilePage.profileHeading);
@@ -55,7 +53,7 @@ describe('My profile page. Client area.', () => {
         });
 
         it('Click on triangle near the "User@email" button.', () => {
-            homePage.clickBtnProfile();
+            homePage.clickProfile();
             commonHelper.visibleWait(homePage.btnProfileOpened);
         });
 
@@ -76,6 +74,11 @@ describe('My profile page. Client area.', () => {
             expect(profilePage.addressProfile.getAttribute('value')).toEqual(addressProfileTest);
             expect(profilePage.supportPinProfile.getAttribute('value')).toEqual(supportPinProfileTest);
             expect(profilePage.newsletterProfile.getAttribute('value')).toEqual(newsletterProfileTest);
+        });
+
+        it('Log out.', () => {
+            profilePage.LogOut();
+            commonHelper.visibleWait(authPage.txtEmail);
         });
     });
 });

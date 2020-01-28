@@ -36,6 +36,12 @@ class AuthorizationPage {
        this.btnLogIn.click();
     }
 
+    logIn (email = browser.params.firstUser.email, password = browser.params.firstUser.password) {
+        this.fillEmail (email);
+        this.fillPassword (password);
+        this.clickLogIn();
+    }
+
     clickEyeIcon () {
        this.eyeIcon.click();
     }
