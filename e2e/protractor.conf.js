@@ -1,7 +1,7 @@
 const HtmlScreenshotReporter  = require('protractor-jasmine2-screenshot-reporter');
 const SpecReporter            = require('jasmine-spec-reporter').SpecReporter;
 const DescribeFailureReporter = require('protractor-stop-describe-on-failure');
-const config                  = require('./services/configs/config.data.json');
+const configUser              = require('./services/configs/config.data.json');
 
 const specReporter = new SpecReporter({
     displayStacktrace: 'all',       // display stacktrace for each failed assertion, values: (all|specs|summary|none)
@@ -42,7 +42,7 @@ exports.config = {
 
     baseUrl: "www.protractortest.org",
 
-    params: config,
+    params: configUser,
 
     capabilities: {
         'browserName': 'chrome',
