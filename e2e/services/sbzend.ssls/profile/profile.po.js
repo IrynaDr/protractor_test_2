@@ -27,6 +27,15 @@ class ProfilePage {
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
+
+    profileEntry (field) {
+        return element(by.cssContainingText('.item', field));
+    }
+
+    getUserProfile (field) {
+        this.profileEntry(field).$('.description .text').getText();
+    }
+
     LogOut () {
         this.btnProfile.click();
         commonHelper.visibleWait(this.btnLogOut);

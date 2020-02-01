@@ -31,12 +31,12 @@ describe('My profile page. Client area.', () => {
         });
         it(`Save values(Do not change saved values) of such fields in Profile - Name, Email, Phone, Address,
         Support Pin, Newsletter`, () => {
-            nameProfileTest = profilePage.nameProfile.getAttribute('value');
-            emailProfileTest = profilePage.emailProfile.getAttribute('value');
-            phoneProfileTest = profilePage.phoneProfile.getAttribute('value');
-            addressProfileTest  = profilePage.addressProfile.getAttribute('value');
-            supportPinProfileTest  = profilePage.supportPinProfile.getAttribute('value');
-            newsletterProfileTest  = profilePage.newsletterProfile.getAttribute('value');
+            nameProfileTest = profilePage.getUserProfile('Name');
+            emailProfileTest = profilePage.getUserProfile('Email');
+            phoneProfileTest = profilePage.getUserProfile('Phone');
+            addressProfileTest  = profilePage.getUserProfile('Address');
+            supportPinProfileTest  = profilePage.getUserProfile('Support pin');
+            newsletterProfileTest  = profilePage.getUserProfile('Newsletter');
         });
 
         it('Log out.', () => {
@@ -68,12 +68,12 @@ describe('My profile page. Client area.', () => {
 
         it(`Check that opened page has to contain values in the next fields and compare with values from precondition:
         Name, Email, Phone, Address, Support Pin, Newsletter`, () => {
-            expect(profilePage.nameProfile.getAttribute('value')).toEqual(nameProfileTest);
-            expect(profilePage.emailProfile.getAttribute('value')).toEqual(emailProfileTest);
-            expect(profilePage.phoneProfile.getAttribute('value')).toEqual(phoneProfileTest);
-            expect(profilePage.addressProfile.getAttribute('value')).toEqual(addressProfileTest);
-            expect(profilePage.supportPinProfile.getAttribute('value')).toEqual(supportPinProfileTest);
-            expect(profilePage.newsletterProfile.getAttribute('value')).toEqual(newsletterProfileTest);
+            expect(profilePage.getUserProfile('Name')).toEqual(nameProfileTest);
+            expect(profilePage.getUserProfile('Email')).toEqual(emailProfileTest);
+            expect(profilePage.getUserProfile('Phone')).toEqual(phoneProfileTest);
+            expect(profilePage.getUserProfile('Address')).toEqual(addressProfileTest);
+            expect(profilePage.getUserProfile('Support pin')).toEqual(supportPinProfileTest);
+            expect(profilePage.getUserProfile('Newsletter')).toEqual(newsletterProfileTest);
         });
 
         it('Log out.', () => {
