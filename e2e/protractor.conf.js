@@ -1,13 +1,13 @@
-
-const HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
-const SpecReporter = require('jasmine-spec-reporter').SpecReporter;
+const HtmlScreenshotReporter  = require('protractor-jasmine2-screenshot-reporter');
+const SpecReporter            = require('jasmine-spec-reporter').SpecReporter;
 const DescribeFailureReporter = require('protractor-stop-describe-on-failure');
+const configUser              = require('./services/configs/config.data.json');
 
 const specReporter = new SpecReporter({
     displayStacktrace: 'all',       // display stacktrace for each failed assertion, values: (all|specs|summary|none)
     displayFailuresSummary: false,  // display summary of all failures after execution
-    displayPendingSummary: true,   // display summary of all pending specs after execution
-    displaySuccessfulSpec: true,   // display each successful spec
+    displayPendingSummary: true,    // display summary of all pending specs after execution
+    displaySuccessfulSpec: true,    // display each successful spec
     displayFailedSpec: true,        // display each failed spec
     displayPendingSpec: false,      // display each pending spec
     displaySpecDuration: true,      // display each spec duration
@@ -42,6 +42,8 @@ exports.config = {
 
     baseUrl: "www.protractortest.org",
 
+    params: configUser,
+
     capabilities: {
         'browserName': 'chrome',
         'chromeOptions': {
@@ -57,9 +59,6 @@ exports.config = {
     },
 
     plugins: [{
-        package: 'protractor-testability-plugin',
-        path: '../node_modules/protractor-testability-plugin'
-    }, {
         package: 'protractor-console',
         logLevels: ['severe'],
         path: '../node_modules/protractor-console'
@@ -70,7 +69,11 @@ exports.config = {
         'jasmine-matchers'
     ],
 
-    specs: ['./test/githab.spec.js'],
+    suites: {
+        github: './test/github/github.spec.js',
+        sbzend: ['./test/sbzend.ssls/my_profile_page_client_area.spec.js',
+            './test/sbzend.ssls/authorization_page.spec.js']
+      },
 
     allScriptsTimeout: 45000,
 
@@ -78,9 +81,7 @@ exports.config = {
         showColors: true,
         defaultTimeoutInterval: 45000,
         isVerbose: true,
-        print: function() {},
-        grep: '@local',
-        invertGrep: true
+        print: function() {}
     },
 
     // Setup the report before any tests start
@@ -92,7 +93,6 @@ exports.config = {
 
         jasmine.getEnv().addReporter(htmlReporter);
         jasmine.getEnv().addReporter(specReporter);
-        jasmine.getEnv().addReporter(DescribeFailureReporter(jasmine.getEnv()));
     },
 
     // Close the report after all tests finish
