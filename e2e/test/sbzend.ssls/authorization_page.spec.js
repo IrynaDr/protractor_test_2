@@ -8,7 +8,7 @@ const errorMessage  = 'Uh oh! Email or password is incorrect';
 
 describe('Authorization page. Not registered user.', () => {
 
-    afterAll(function () {
+    afterAll( () => {
         commonHelper.clearAllData();
     });
 
@@ -54,7 +54,7 @@ describe('Authorization page. Not registered user.', () => {
 
 describe('Authorization page (Welcome back!).', () => {
 
-    afterAll(function () {
+    afterAll( () => {
         commonHelper.clearAllData();
     });
 
@@ -76,7 +76,8 @@ describe('Authorization page (Welcome back!).', () => {
         expect(authPage.txtWelcome.isDisplayed()).toBe(true);
     });
 
-    it('On the authorization page enter valid email and password for previously registered user (to check entered password, click on "eye" icon in password field.)', () => {
+    it('On the authorization page enter valid email and password for previously registered user '+
+        '(to check entered password, click on "eye" icon in password field.)', () => {
         authPage.fillEmail(browser.params.firstUser.email);
         authPage.fillPassword(browser.params.firstUser.password);
         authPage.clickEyeIcon();
@@ -92,7 +93,8 @@ describe('Authorization page (Welcome back!).', () => {
         commonHelper.visibleWait(homePage.btnProfileEmail);
     });
 
-    it('"Log in" button has to be changed on "User@email" button (with dropdown menu) from the left side in the Header of the page.', () => {
+    it('"Log in" button has to be changed on "User@email" button (with dropdown menu) from the left side '+
+        'in the Header of the page.', () => {
          expect(homePage.btnProfileEmail.getText()).toEqual(browser.params.firstUser.email);
          expect(homePage.btnProfile.isDisplayed()).toBe(true);
     });
