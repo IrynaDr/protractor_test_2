@@ -20,6 +20,13 @@ class AuthorizationPage {
         this.eyeIconOn = $('[class*="icon-eye ng-hide"]');
 
         this.txtNotify = $('.noty_text');
+
+        this.tooltipLoginError = $('[ng-show*="authForm.email.$error.pattern"]');
+
+        this.tooltipLoginEmpty = $('[ng-show*="authForm.email.$error.req"]');
+
+        this.tooltipPasswordError = $('[ng-show*="authForm.password.$error.req"]');
+
     }
     //--------------------------------------------------------------------------
     // Functions
