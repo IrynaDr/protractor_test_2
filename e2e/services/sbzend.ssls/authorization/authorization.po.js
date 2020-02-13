@@ -21,11 +21,11 @@ class AuthorizationPage {
 
         this.txtNotify = $('.noty_text');
 
-        this.tooltipLoginError = $('[ng-show*="authForm.email.$error.pattern"]');
+        this.tooltipLoginError = $('[ng-show*="authForm.email.$error.pat"]:not(.ng-hide)');
 
-        this.tooltipLoginEmpty = $('[ng-show*="authForm.email.$error.req"]');
+        this.tooltipLoginEmpty = $('[ng-show*="authForm.$sub"]:not(.ng-hide)');
 
-        this.tooltipPasswordError = $('[ng-show*="authForm.password.$error.req"]');
+        this.tooltipPasswordError = $('[ng-show*="authForm.password.$error"]:not(.ng-hide)');
 
     }
     //--------------------------------------------------------------------------
@@ -51,6 +51,14 @@ class AuthorizationPage {
 
     clickEyeIcon () {
        this.eyeIcon.click();
+    }
+
+    clearLoginField() {
+        this.txtEmail.clear();
+    }
+
+    clearPasswordField() {
+        this.txtPassword.clear();
     }
 };
 

@@ -1,11 +1,14 @@
-const commonHelper  = require('../../services/helpers/commonHelper.js');
-const pageObject    = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
-const homePage      = pageObject.getHomePage();
-const authPage      = pageObject.getAuthorizationPage();
-const invalidEmail  = 'k';
-const validEmail    = 'test@gmail.com';
-const tooltipLoginError = 'Uh oh! This isn’t an email';
-const tooltipLoginEmpty = 'Oops, please enter your email';
+const commonHelper      = require('../../services/helpers/commonHelper.js');
+const pageObject        = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
+const homePage          = pageObject.getHomePage();
+const authPage          = pageObject.getAuthorizationPage();
+
+const invalidEmail      = 'k';
+const validEmail        = 'test@gmail.com';
+const emptyField        = '';
+const tooltipLoginError = 'Uh oh! This\nisn’t an email';
+const tooltipLoginEmpty = 'Oops, please\nenter your email';
+
 
 describe('Authorization page. Login field tooltip.', () => {
 
@@ -37,26 +40,32 @@ describe('Authorization page. Login field tooltip.', () => {
 
     it('The tooltip "Uh oh! This isn’t an email" is displayed.', () => {
         expect(authPage.tooltipLoginError.isDisplayed()).toBe(true);
+        expect(authPage.tooltipLoginError.getText()).toEqual(tooltipLoginError);
     });
 
     it('Remove text from the login field.', () => {
-
+        authPage.clearLoginField();
     });
 
     it('The login field is empty.', () => {
-
+        expect(authPage.txtEmail.getText()).toEqual(emptyField);
     });
 
     it('The tooltip "Oops, please enter your email" is displayed.', () => {
         expect(authPage.tooltipLoginEmpty.isDisplayed()).toBe(true);
+        expect(authPage.tooltipLoginEmpty.getText()).toEqual(tooltipLoginEmpty);
     });
 
     it('Enter valid value into login field.', () => {
         authPage.fillEmail(validEmail);
+        commonHelper.secWait(3);
     });
 
     it('The tooltip is not displayed.', () => {
-
+        expect(authPage.tooltipLoginError.isDisplayed()).toBe(false);
+        expect(authPage.tooltipLoginEmpty.isDisplayed()).toBe(false);
     });
 
 });
+
+

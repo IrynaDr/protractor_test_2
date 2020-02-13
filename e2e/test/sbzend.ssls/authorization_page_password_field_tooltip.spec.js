@@ -2,6 +2,7 @@ const commonHelper    = require('../../services/helpers/commonHelper.js');
 const pageObject      = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
 const homePage        = pageObject.getHomePage();
 const authPage        = pageObject.getAuthorizationPage();
+
 const invalidPassword = ' ';
 const validPassword   = '06';
 const tooltipPassword = 'Looks like you’ve missed this one';
