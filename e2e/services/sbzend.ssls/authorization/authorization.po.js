@@ -1,3 +1,5 @@
+const commonHelper = require('../../helpers/commonHelper.js');
+
 class AuthorizationPage {
 
     //--------------------------------------------------------------------------
@@ -23,7 +25,7 @@ class AuthorizationPage {
 
         this.tooltipLoginError = $('[ng-show*="authForm.email.$error.pat"]:not(.ng-hide)');
 
-        this.tooltipLoginEmpty = $('[ng-show*="authForm.$sub"]:not(.ng-hide)');
+        this.tooltipLoginEmpty = $('[ng-show*="authForm.$sub"][ng-show*="authForm.email"]:not(.ng-hide)');
 
         this.tooltipPasswordError = $('[ng-show*="authForm.password.$error"]:not(.ng-hide)');
 
@@ -33,10 +35,12 @@ class AuthorizationPage {
     //--------------------------------------------------------------------------
     fillEmail (text) {
         this.txtEmail.sendKeys(text);
+        commonHelper.secWait(2);
     }
 
     fillPassword (text) {
         this.txtPassword.sendKeys(text);
+        commonHelper.secWait(2);
     }
 
     clickLogIn () {
@@ -55,10 +59,12 @@ class AuthorizationPage {
 
     clearLoginField() {
         this.txtEmail.clear();
+        commonHelper.secWait(2);
     }
 
     clearPasswordField() {
         this.txtPassword.clear();
+        commonHelper.secWait(2);
     }
 };
 
