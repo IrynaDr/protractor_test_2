@@ -72,7 +72,8 @@ exports.config = {
     suites: {
         github: './test/github/github.spec.js',
         sbzend: ['./test/sbzend.ssls/my_profile_page_client_area.spec.js',
-            './test/sbzend.ssls/authorization_page.spec.js']
+            './test/sbzend.ssls/authorization_page.spec.js',
+            './test/sbzend.ssls/authorization_page_login_password_tooltips.spec.js']
       },
 
     allScriptsTimeout: 45000,

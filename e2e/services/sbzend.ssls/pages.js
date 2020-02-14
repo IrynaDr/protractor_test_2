@@ -3,16 +3,20 @@ const bottlejs  = require('bottlejs').pop('test');
 bottlejs.factory('PageObjectSbzend', () => {
     return {
 	    getAuthorizationPage: () => {
-	        let authorizationPage = require('./authorization/authorization.po');
+	        const authorizationPage = require('./authorization/authorization.po');
 	        return new authorizationPage();
 	    },
         getHomePage: () => {
-            let homePage = require('./home/home.po');
+            const homePage = require('./home/home.po');
             return new homePage();
         },
         getProfilePage: () => {
-            let profilePage = require('./profile/profile.po');
+            const profilePage = require('./profile/profile.po');
             return new profilePage();
+	    },
+	    getOrdersPage: () => {
+	        const ordersPage = require('./orders/orders.po.js');
+	        return new ordersPage();
 	    }
     }
 });

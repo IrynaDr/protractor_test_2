@@ -21,6 +21,8 @@ class HomePage {
         this.btnProfileOpened = $('[style="display: block;"]');
 
         this.btnViewProfile = $('[ui-sref="user.profile"]');
+
+        this.btnOrderHistory = $('[ui-sref="user.orders.list"]');
     }
     //--------------------------------------------------------------------------
     // Functions
@@ -37,6 +39,10 @@ class HomePage {
 
     clickProfile () {
        this.btnProfile.click();
+    }
+
+    clickBtnOrderHistory () {
+        this.btnOrderHistory.click();
     }
 
     clickBtnViewProfile () {
