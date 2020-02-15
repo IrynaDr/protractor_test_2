@@ -35,12 +35,10 @@ class AuthorizationPage {
     //--------------------------------------------------------------------------
     fillEmail (text) {
         this.txtEmail.sendKeys(text);
-        commonHelper.secWait(2);
     }
 
     fillPassword (text) {
         this.txtPassword.sendKeys(text);
-        commonHelper.secWait(2);
     }
 
     clickLogIn () {
@@ -48,8 +46,8 @@ class AuthorizationPage {
     }
 
     logIn (email = browser.params.firstUser.email, password = browser.params.firstUser.password) {
-        this.fillEmail (email);
-        this.fillPassword (password);
+        this.fillEmail(email);
+        this.fillPassword(password);
         this.clickLogIn();
     }
 
@@ -59,12 +57,10 @@ class AuthorizationPage {
 
     clearLoginField() {
         this.txtEmail.clear();
-        commonHelper.secWait(2);
     }
 
     clearPasswordField() {
         this.txtPassword.clear();
-        commonHelper.secWait(2);
     }
 };
 

@@ -18,7 +18,6 @@ describe('My profile page. Client area.', () => {
 
         it('Log in to the user’s account.', () => {
             homePage.clickLogIn();
-            commonHelper.visibleWait(authPage.txtWelcome);
             authPage.logIn();
             commonHelper.visibleWait(homePage.btnProfileEmail);
         });

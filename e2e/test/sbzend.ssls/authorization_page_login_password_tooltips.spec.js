@@ -29,7 +29,6 @@ describe('Authorization page. Tooltips.', () => {
 
         it('Click on LOG IN text.', () => {
             homePage.clickLogIn();
-            commonHelper.visibleWait(authPage.txtWelcome);
         });
 
         it('Authorization page has to be opened.', () => {
@@ -51,7 +50,7 @@ describe('Authorization page. Tooltips.', () => {
         });
 
         it('The login field is empty.', () => {
-            expect(authPage.txtEmail.getText()).toEqual(emptyField);
+            expect(authPage.txtEmail.getAttribute('value')).toEqual(emptyField);
         });
 
         it('The tooltip "Oops, please enter your email" is displayed.', () => {
@@ -86,7 +85,6 @@ describe('Authorization page. Tooltips.', () => {
 
         it('Click on LOG IN text.', () => {
             homePage.clickLogIn();
-            commonHelper.visibleWait(authPage.txtWelcome);
         });
 
         it('Authorization page has to be opened.', () => {
@@ -108,7 +106,7 @@ describe('Authorization page. Tooltips.', () => {
         });
 
         it('The password field is empty.', () => {
-            expect(authPage.txtPassword.getText()).toEqual(emptyField);
+            expect(authPage.txtPassword.getAttribute('value')).toEqual(emptyField);
         });
 
         it('The tooltip "Looks like you’ve missed this one" is displayed.', () => {
@@ -138,7 +136,6 @@ describe('Authorization page. Tooltips.', () => {
 
         it('Remove text from the password field.', () => {
             authPage.clearPasswordField();
-            commonHelper.secWait(2);
         });
 
         it('The tooltip "Looks like you’ve missed this one" is displayed. The Email tooltip still displayed.', () => {
@@ -149,7 +146,7 @@ describe('Authorization page. Tooltips.', () => {
 
         it('Remove text from the login field.', () => {
             authPage.clearLoginField();
-            expect(authPage.txtEmail.getText()).toEqual(emptyField);
+            expect(authPage.txtEmail.getAttribute('value')).toEqual(emptyField);
         });
 
         it('The tooltips "Oops, please enter your email" and "Looks like you’ve missed this one" are displayed.', () => {

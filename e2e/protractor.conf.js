@@ -73,7 +73,9 @@ exports.config = {
         github: './test/github/github.spec.js',
         sbzend: ['./test/sbzend.ssls/my_profile_page_client_area.spec.js',
             './test/sbzend.ssls/authorization_page.spec.js',
-            './test/sbzend.ssls/authorization_page_login_password_tooltips.spec.js']
+            './test/sbzend.ssls/authorization_page_login_password_tooltips.spec.js',
+            './test/sbzend.ssls/order_history_page.spec.js'],
+        test: './test/sbzend.ssls/order_history_page.spec.js'
       },
 
     allScriptsTimeout: 45000,

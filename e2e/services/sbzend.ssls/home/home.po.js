@@ -23,6 +23,8 @@ class HomePage {
         this.btnViewProfile = $('[ui-sref="user.profile"]');
 
         this.btnOrderHistory = $('[ui-sref="user.orders.list"]');
+
+        this.authTxtWelcome = $('.authorization-content .text');
     }
     //--------------------------------------------------------------------------
     // Functions
@@ -35,6 +37,7 @@ class HomePage {
     clickLogIn () {
        commonHelper.visibleWait(this.btnLogIn);
        this.btnLogIn.click();
+       commonHelper.visibleWait(this.authTxtWelcome);
     }
 
     clickProfile () {

@@ -22,7 +22,6 @@ describe('Authorization page. Not registered user.', () => {
 
     it('Click on LOG IN text.', () => {
         homePage.clickLogIn();
-        commonHelper.visibleWait(authPage.txtWelcome);
     });
 
     it('Authorization page has to be opened.', () => {
@@ -68,7 +67,6 @@ describe('Authorization page (Welcome back!).', () => {
 
     it('Click on LOG IN text.', () => {
         homePage.clickLogIn();
-        commonHelper.visibleWait(authPage.txtWelcome);
     });
 
     it('Authorization page has to be opened.', () => {
