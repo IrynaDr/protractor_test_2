@@ -1,5 +1,12 @@
 {
   "baseUrl": "https://www.sbzend.ssls.com",
+  "firstOrderData": {
+    "number": "#4399126",
+    "created": "02 Jul '19",
+    "status": "Not completed",
+    "amount": "$9.76",
+    "items": "PositiveSSL"
+  },
   "firstUser": {
     "email": "ssls.automation+666@gmail.com",
     "password": "123456"
