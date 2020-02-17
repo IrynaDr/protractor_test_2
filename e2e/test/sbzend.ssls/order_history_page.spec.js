@@ -58,11 +58,10 @@ describe('Order history page.', () => {
         expect(ordersPage.txtAmountView.getText()).toEqual(orderAmount);
         expect(ordersPage.txtAmountTotal.getText()).toEqual(orderAmount);
 
-//        ordersPage.txtOrderTitleView.getText() TODO
-//            .then(function (value) {
-//                orderNumber2 = value.slice(6, 14);
-//            });
-//        expect(orderNumber2).toEqual(browser.params.firstOrderData.number);
+        ordersPage.txtOrderTitleView.getText()
+            .then(function (value) {
+                orderNumber2 = value.slice(6, 14);
+                expect(orderNumber2).toEqual(browser.params.firstOrderData.number);
+            });
     });
-
 });
