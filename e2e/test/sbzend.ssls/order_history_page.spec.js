@@ -3,10 +3,8 @@ const pageObject    = require('../../services/sbzend.ssls/pages').container.Page
 const homePage      = pageObject.getHomePage();
 const authPage      = pageObject.getAuthorizationPage();
 const ordersPage    = pageObject.getOrdersPage();
-let orderNumber, orderNumber2;
-const orderTitle = 'Order #4399126, not completed on 02 Jul 2019';
-const orderItems = '1 × PositiveSSL × 2 yrs';
-const orderAmount = '$9.76';
+let orderNumber1, orderNumber2;
+
 
 describe('Order history page.', () => {
 
@@ -46,6 +44,7 @@ describe('Order history page.', () => {
         expect(ordersPage.btnStatus.getText()).toEqual(browser.params.firstOrderData.status);
         expect(ordersPage.txtAmount.getText()).toEqual(browser.params.firstOrderData.amount);
         expect(ordersPage.txtItems.getText()).toEqual(browser.params.firstOrderData.items);
+        orderNumber1 = ordersPage.txtFirstOrderNumber.getText()
     });
 
     it('Open order details.', () => {
@@ -53,15 +52,14 @@ describe('Order history page.', () => {
     });
 
     it('The orders information should be correct.', () => {
-        expect(ordersPage.txtOrderTitleView.getText()).toEqual(orderTitle);
-        expect(ordersPage.txtItemsView.getText()).toEqual(orderItems);
-        expect(ordersPage.txtAmountView.getText()).toEqual(orderAmount);
-        expect(ordersPage.txtAmountTotal.getText()).toEqual(orderAmount);
-
+        expect(ordersPage.txtOrderTitleView.getText()).toEqual(browser.params.firstOrderData.orderTitle);
+        expect(ordersPage.txtItemsView.getText()).toEqual(browser.params.firstOrderData.orderItems);
+        expect(ordersPage.txtAmountView.getText()).toEqual(browser.params.firstOrderData.orderAmount);
+        expect(ordersPage.txtAmountTotal.getText()).toEqual(browser.params.firstOrderData.orderAmount);
         ordersPage.txtOrderTitleView.getText()
             .then(function (value) {
                 orderNumber2 = value.slice(6, 14);
-                expect(orderNumber2).toEqual(browser.params.firstOrderData.number);
+                expect(orderNumber2).toEqual(orderNumber1);
             });
     });
 });
