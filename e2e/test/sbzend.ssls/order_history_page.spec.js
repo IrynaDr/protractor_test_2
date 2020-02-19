@@ -51,15 +51,43 @@ describe('Order history page.', () => {
         ordersPage.clickFirstOrder();
     });
 
-    it('The orders information should be correct.', () => {
+//first
+//    it('The orders information should be correct.', () => {
+//        expect(ordersPage.txtOrderTitleView.getText()).toEqual(browser.params.firstOrderData.orderTitle);
+//        expect(ordersPage.txtItemsView.getText()).toEqual(browser.params.firstOrderData.orderItems);
+//        expect(ordersPage.txtAmountView.getText()).toEqual(browser.params.firstOrderData.orderAmount);
+//        expect(ordersPage.txtAmountTotal.getText()).toEqual(browser.params.firstOrderData.orderAmount);
+//        ordersPage.txtOrderTitleView.getText()
+//            .then(function (value) {
+//                orderNumber2 = value.slice(6, 14);
+//                expect(orderNumber2).toEqual(orderNumber1);
+//            });
+//    });
+
+//second
+//    it('Get Order number.', () => {
+//        ordersPage.txtOrderTitleView.getText()
+//            .then(function (value) {
+//                orderNumber2 = value.slice(6, 14);
+//                ;
+//            });
+//    });
+//    it('The orders information should be correct.', () => {
+//        expect(ordersPage.txtOrderTitleView.getText()).toEqual(browser.params.firstOrderData.orderTitle);
+//        expect(ordersPage.txtItemsView.getText()).toEqual(browser.params.firstOrderData.orderItems);
+//        expect(ordersPage.txtAmountView.getText()).toEqual(browser.params.firstOrderData.orderAmount);
+//        expect(ordersPage.txtAmountTotal.getText()).toEqual(browser.params.firstOrderData.orderAmount);
+//        expect(orderNumber2).toEqual(orderNumber1)
+//
+//    });
+
+//third
+    it('Get Order number.', async () => {
+        orderNumber2 = await ordersPage.txtOrderTitleView.getText();
+        expect(orderNumber2.slice(6, 14)).toEqual(orderNumber1);
         expect(ordersPage.txtOrderTitleView.getText()).toEqual(browser.params.firstOrderData.orderTitle);
         expect(ordersPage.txtItemsView.getText()).toEqual(browser.params.firstOrderData.orderItems);
         expect(ordersPage.txtAmountView.getText()).toEqual(browser.params.firstOrderData.orderAmount);
         expect(ordersPage.txtAmountTotal.getText()).toEqual(browser.params.firstOrderData.orderAmount);
-        ordersPage.txtOrderTitleView.getText()
-            .then(function (value) {
-                orderNumber2 = value.slice(6, 14);
-                expect(orderNumber2).toEqual(orderNumber1);
-            });
     });
 });

@@ -11,3 +11,4 @@
  ## Run suites
 - protractor e2e/protractor.conf.js --suite github
 - protractor e2e/protractor.conf.js --suite sbzend
+- protractor e2e/protractor.conf.js --suite test
