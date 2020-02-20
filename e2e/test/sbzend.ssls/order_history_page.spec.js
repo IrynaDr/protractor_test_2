@@ -5,7 +5,6 @@ const authPage      = pageObject.getAuthorizationPage();
 const ordersPage    = pageObject.getOrdersPage();
 let orderNumber1, orderNumber2;
 
-
 describe('Order history page.', () => {
 
     afterAll(function () {
@@ -82,7 +81,7 @@ describe('Order history page.', () => {
 //    });
 
 //third
-    it('Get Order number.', async () => {
+    it('The orders information should be correct.', async () => {
         orderNumber2 = await ordersPage.txtOrderTitleView.getText();
         expect(orderNumber2.slice(6, 14)).toEqual(orderNumber1);
         expect(ordersPage.txtOrderTitleView.getText()).toEqual(browser.params.firstOrderData.orderTitle);
