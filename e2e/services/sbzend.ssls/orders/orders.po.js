@@ -11,16 +11,6 @@ class OrdersPage {
 
         this.btnAllOrdersActive = $('.all-tab.active');
 
-        this.txtFirstOrderNumber = $('[ng-show*="products"]');
-
-        this.txtCreated = $('.item.date-created');
-
-        this.btnStatus = $('.btn-s.warning');
-
-        this.txtAmount = $('.item.amount');
-
-        this.txtItems = $('.item.items');
-
         this.txtOrderTitleView = $('.tab-item.ng-binding');
 
         this.txtItemsView = $('.item.terms[ng-if*="certificate"]');
@@ -29,14 +19,39 @@ class OrdersPage {
 
         this.txtAmountTotal = $('.item.amount.ng-binding');
 
+        this.allOrders = $$('[ng-repeat="order in orders"]');
+
     }
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
 
-    clickFirstOrder() {
-        this.txtFirstOrderNumber.click();
+    orderEntry(value) {
+        return element(by.cssContainingText('[ng-repeat="order in orders"]', value));
+    }
+
+    getOrderNumber(value) {
+        return this.orderEntry(value).$('.order-id').getText();
+    }
+
+    clickOrder(value) {
+        this.orderEntry(value).$('.order-id').click();
         commonHelper.visibleWait(this.txtOrderTitleView);
+    }
+
+    getOrderCreated(value) {
+        return this.orderEntry(value).$('.date-created').getText();
+    }
+
+    getOrderStatus(value) {
+        return this.orderEntry(value).$('.status').getText();
+    }
+
+    getOrderAmount(value) {
+        return this.orderEntry(value).$('.amount').getText();
+    }
+    getOrderItems(value) {
+        return this.orderEntry(value).$('.items').getText();
     }
 
 };

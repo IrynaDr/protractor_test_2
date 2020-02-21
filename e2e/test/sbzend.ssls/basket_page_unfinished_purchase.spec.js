@@ -10,55 +10,55 @@ describe('Basket page.', () => {
         commonHelper.clearAllData();
     });
 
-    it('Open Home page.', () => {
+    it('should open Home page.', () => {
         homePage.openHomePage();
     });
 
-    it('Log in to the user’s account.', () => {
+    it('should log in to the user’s account.', () => {
         homePage.clickLogIn();
         authPage.logIn();
         commonHelper.visibleWait(homePage.btnProfileEmail);
     });
 
-    it('All required certificates should be present on the Home screen.', () => {
+    it('should present all required certificates on the Home page.', () => {
     });
 
-    it('Open details for a PositiveSSL certificate.', () => {
+    it('should open details for a PositiveSSL certificate.', () => {
     });
 
-    it('The PositiveSSL certificate information should be correct.', () => {
+    it('should be correct the PositiveSSL certificate information.', () => {
     });
 
-    it('Click on the Buy button.', () => {
+    it('should click on the Buy button.', () => {
     });
 
-    it('The Basket screen with the PositiveSSL certificate should be displayed.', () => {
+    it('should display the Basket page with the PositiveSSL certificate.', () => {
     });
 
-    it('The PositiveSSL certificate with correct information should be displayed.', () => {
+    it('should display the PositiveSSL certificate with correct information.', () => {
     });
 
-    it('Remove the PositiveSSL certificate from the Basket.', () => {
+    it('should remove the PositiveSSL certificate from the Basket.', () => {
     });
 
-    it('The Basket should be empty. The "It’s empty. And hollow. And sad" text should be displayed.', () => {
+    it('should Basket be empty and "It’s empty. And hollow. And sad" text display.', () => {
     });
 
-    it('Navigate to the Home screen.', () => {
+    it('should navigate to the Home page.', () => {
     });
 
-    it('Click Buy button on the PositiveSSL certificate.', () => {
+    it('should click Buy button on the PositiveSSL certificate.', () => {
     });
 
-    it('The Basket screen with the PositiveSSL certificate should be displayed.', () => {
+    it('should display the Basket screen with the PositiveSSL certificate.', () => {
     });
 
-    it('The PositiveSSL certificate with correct information should be displayed.', () => {
+    it('should display the PositiveSSL certificate with correct information.', () => {
     });
 
-    it('Set Quantity field equal to zero.', () => {
+    it('should set Quantity field equal to zero.', () => {
     });
 
-    it('The Basket should be empty. The "It’s empty. And hollow. And sad" text should be displayed.', () => {
+    it('should Basket be empty and "It’s empty. And hollow. And sad" text display.', () => {
     });
 });

@@ -1,9 +1,10 @@
 const commonHelper  = require('../../services/helpers/commonHelper.js');
+const orderData     = require('../../services/data/order/order.data.js');
 const pageObject    = require('../../services/sbzend.ssls/pages').container.PageObjectSbzend;
 const homePage      = pageObject.getHomePage();
 const authPage      = pageObject.getAuthorizationPage();
 const ordersPage    = pageObject.getOrdersPage();
-let orderNumber1, orderNumber2;
+let orderNumber1, orderNumber2, orders;
 
 describe('Order history page.', () => {
 
@@ -11,51 +12,52 @@ describe('Order history page.', () => {
         commonHelper.clearAllData();
     });
 
-    it('Open Home page.', () => {
+    it('should open Home page.', () => {
         homePage.openHomePage();
     });
 
-    it('Log in to the user’s account.', () => {
+    it('should log in to the user’s account.', () => {
         homePage.clickLogIn();
         authPage.logIn();
         commonHelper.visibleWait(homePage.btnProfileEmail);
     });
 
-    it('Navigate to the Order history screen.', () => {
+    it('should navigate to the Order history screen.', () => {
         homePage.clickProfile();
         commonHelper.visibleWait(homePage.btnProfileOpened);
         homePage.clickBtnOrderHistory();
         commonHelper.visibleWait(ordersPage.txtOrder);
     });
 
-    it('The "All orders" tab is opened.', () => {
+    it('should open the "All orders" tab.', () => {
         commonHelper.visibleWait(ordersPage.btnAllOrdersActive);
     });
 
-    it(`One order with the following values is displayed:
+    it(`should display only one order with the following values:
         - Order #: #4399126,
         - Created: 02 Jul '19,
         - Status: Not completed,
         - Amount: $9.76,
         - Items: PositiveSSL`, () => {
-        expect(ordersPage.txtFirstOrderNumber.getText()).toEqual(browser.params.firstOrderData.number);
-        expect(ordersPage.txtCreated.getText()).toEqual(browser.params.firstOrderData.created);
-        expect(ordersPage.btnStatus.getText()).toEqual(browser.params.firstOrderData.status);
-        expect(ordersPage.txtAmount.getText()).toEqual(browser.params.firstOrderData.amount);
-        expect(ordersPage.txtItems.getText()).toEqual(browser.params.firstOrderData.items);
-        orderNumber1 = ordersPage.txtFirstOrderNumber.getText()
+        expect(ordersPage.allOrders.count()).toBe(1);
+        expect(ordersPage.getOrderNumber(orderData.firstOrderData.number)).toEqual(orderData.firstOrderData.number);
+        expect(ordersPage.getOrderCreated(orderData.firstOrderData.number)).toEqual(orderData.firstOrderData.created);
+        expect(ordersPage.getOrderStatus(orderData.firstOrderData.number)).toEqual(orderData.firstOrderData.status);
+        expect(ordersPage.getOrderAmount(orderData.firstOrderData.number)).toEqual(orderData.firstOrderData.amount);
+        expect(ordersPage.getOrderItems(orderData.firstOrderData.number)).toEqual(orderData.firstOrderData.items);
+        orderNumber1 = ordersPage.getOrderNumber(orderData.firstOrderData.number);
     });
 
-    it('Open order details.', () => {
-        ordersPage.clickFirstOrder();
+    it('should open order details.', () => {
+        ordersPage.clickOrder(orderData.firstOrderData.number);
     });
 
 //first
-//    it('The orders information should be correct.', () => {
-//        expect(ordersPage.txtOrderTitleView.getText()).toEqual(browser.params.firstOrderData.orderTitle);
-//        expect(ordersPage.txtItemsView.getText()).toEqual(browser.params.firstOrderData.orderItems);
-//        expect(ordersPage.txtAmountView.getText()).toEqual(browser.params.firstOrderData.orderAmount);
-//        expect(ordersPage.txtAmountTotal.getText()).toEqual(browser.params.firstOrderData.orderAmount);
+//    it('should be correct the orders information.', () => {
+//        expect(ordersPage.txtOrderTitleView.getText()).toEqual(orderData.firstOrderData.orderTitle);
+//        expect(ordersPage.txtItemsView.getText()).toEqual(orderData.firstOrderData.orderItems);
+//        expect(ordersPage.txtAmountView.getText()).toEqual(orderData.firstOrderData.orderAmount);
+//        expect(ordersPage.txtAmountTotal.getText()).toEqual(orderData.firstOrderData.orderAmount);
 //        ordersPage.txtOrderTitleView.getText()
 //            .then(function (value) {
 //                orderNumber2 = value.slice(6, 14);
@@ -64,29 +66,30 @@ describe('Order history page.', () => {
 //    });
 
 //second
-//    it('Get Order number.', () => {
+//    it('should get Order number.', () => {
 //        ordersPage.txtOrderTitleView.getText()
 //            .then(function (value) {
 //                orderNumber2 = value.slice(6, 14);
 //                ;
 //            });
 //    });
-//    it('The orders information should be correct.', () => {
-//        expect(ordersPage.txtOrderTitleView.getText()).toEqual(browser.params.firstOrderData.orderTitle);
-//        expect(ordersPage.txtItemsView.getText()).toEqual(browser.params.firstOrderData.orderItems);
-//        expect(ordersPage.txtAmountView.getText()).toEqual(browser.params.firstOrderData.orderAmount);
-//        expect(ordersPage.txtAmountTotal.getText()).toEqual(browser.params.firstOrderData.orderAmount);
+//    it('should be correct the orders information.', () => {
+//        expect(ordersPage.txtOrderTitleView.getText()).toEqual(orderData.firstOrderData.orderTitle);
+//        expect(ordersPage.txtItemsView.getText()).toEqual(orderData.firstOrderData.orderItems);
+//        expect(ordersPage.txtAmountView.getText()).toEqual(orderData.firstOrderData.orderAmount);
+//        expect(ordersPage.txtAmountTotal.getText()).toEqual(orderData.firstOrderData.orderAmount);
 //        expect(orderNumber2).toEqual(orderNumber1)
 //
 //    });
 
 //third
-    it('The orders information should be correct.', async () => {
+    it('should be correct the orders information.', async () => {
         orderNumber2 = await ordersPage.txtOrderTitleView.getText();
         expect(orderNumber2.slice(6, 14)).toEqual(orderNumber1);
-        expect(ordersPage.txtOrderTitleView.getText()).toEqual(browser.params.firstOrderData.orderTitle);
-        expect(ordersPage.txtItemsView.getText()).toEqual(browser.params.firstOrderData.orderItems);
-        expect(ordersPage.txtAmountView.getText()).toEqual(browser.params.firstOrderData.orderAmount);
-        expect(ordersPage.txtAmountTotal.getText()).toEqual(browser.params.firstOrderData.orderAmount);
+        expect(ordersPage.txtOrderTitleView.getText()).toEqual(orderData.firstOrderData.orderTitle);
+        expect(ordersPage.txtItemsView.getText()).toEqual(orderData.firstOrderData.orderItems);
+        expect(ordersPage.txtAmountView.getText()).toEqual(orderData.firstOrderData.orderAmount);
+        expect(ordersPage.txtAmountTotal.getText()).toEqual(orderData.firstOrderData.orderAmount);
     });
+
 });
