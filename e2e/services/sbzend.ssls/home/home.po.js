@@ -6,6 +6,8 @@ class HomePage {
     //--------------------------------------------------------------------------
     constructor() {
 
+        this.btnHome = $('[alt="SSLs.com"]');
+
         this.btnLogIn = $('[ui-sref*="authorize"]');
 
         this.btnHelpdesk = $('[href="/knowledgebase/"]');
@@ -25,10 +27,28 @@ class HomePage {
         this.btnOrderHistory = $('[ui-sref="user.orders.list"]');
 
         this.authTxtWelcome = $('.authorization-content .text');
+
+        //Basket
+        this.txtBasketTitle = $('.cart-page .page-title');
+
+        this.btnBasketCheckout = $('.checkout-btn');
+
+        //Certs
+        this.certPositiveSSL = element(by.xpath('//*[contains(@class, "ssls-product-card")]//*[text()="PositiveSSL"]'));
+
+        this.txtCertsPageTitle = $('.page-title');
+
+
     }
     //--------------------------------------------------------------------------
     // Functions
     //--------------------------------------------------------------------------
+
+    navHome() {
+        this.btnHome.click();
+        commonHelper.visibleWait(this.homeHeading);
+    }
+
     openHomePage () {
         browser.get(browser.params.baseUrl);
         commonHelper.visibleWait(this.homeHeading);
@@ -51,6 +71,22 @@ class HomePage {
     clickBtnViewProfile () {
         this.btnViewProfile.click();
     }
+
+    productEntry(value){
+        return element(by.xpath(`//*[contains(@class, "ssls-product-card ")]//*[text()="${value}"]//ancestor::div[contains(@class, "ssls-product-card ")]`));
+    }
+
+    clickBuyProduct(value) {
+        this.productEntry(value).$('.ssls-icon-shopping-basket').click();
+        commonHelper.visibleWait(this.btnBasketCheckout);
+
+    };
+
+    clickCertInfo(value) {
+        this.productEntry(value).click();
+        commonHelper.visibleWait(this.txtCertsPageTitle);
+    };
+
 };
 
 module.exports = HomePage;

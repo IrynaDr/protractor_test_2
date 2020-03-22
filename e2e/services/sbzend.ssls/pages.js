@@ -21,6 +21,10 @@ bottlejs.factory('PageObjectSbzend', () => {
         getBasketPage: () => {
             const basketPage = require('./basket/basket.po.js');
             return new basketPage();
+        },
+        getCertsPage: () => {
+            const certsPage = require('./certs/certs.po.js');
+            return new certsPage();
         }
     }
 });

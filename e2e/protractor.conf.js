@@ -75,7 +75,7 @@ exports.config = {
             './test/sbzend.ssls/authorization_page.spec.js',
             './test/sbzend.ssls/authorization_page_login_password_tooltips.spec.js',
             './test/sbzend.ssls/order_history_page.spec.js'],
-        test: './test/sbzend.ssls/order_history_page.spec.js'
+        test: './test/sbzend.ssls/basket_page_unfinished_purchase.spec.js'
       },
 
     allScriptsTimeout: 45000,
