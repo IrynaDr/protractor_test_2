@@ -54,7 +54,7 @@ describe('Basket page.', () => {
     });
 
     it('should navigate to the Home page.', () => {
-        homePage.navHome();
+        homePage.goBackHome();
     });
 
     it('should click Buy button on the PositiveSSL certificate.', () => {
@@ -69,7 +69,7 @@ describe('Basket page.', () => {
     });
 
     it('should navigate to the Home page.', () => {
-        homePage.navHome();
+        homePage.goBackHome();
     });
 
     it('should click Buy button on the PositiveSSL Wildcard certificate.', () => {

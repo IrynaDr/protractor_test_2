@@ -44,7 +44,7 @@ class HomePage {
     // Functions
     //--------------------------------------------------------------------------
 
-    navHome() {
+    goBackHome() {
         this.btnHome.click();
         commonHelper.visibleWait(this.homeHeading);
     }
