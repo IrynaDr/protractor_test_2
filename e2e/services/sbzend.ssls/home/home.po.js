@@ -79,7 +79,6 @@ class HomePage {
     clickBuyProduct(value) {
         this.productEntry(value).$('.ssls-icon-shopping-basket').click();
         commonHelper.visibleWait(this.btnBasketCheckout);
-
     };
 
     clickCertInfo(value) {

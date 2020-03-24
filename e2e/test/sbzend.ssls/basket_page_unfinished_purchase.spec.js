@@ -24,14 +24,14 @@ describe('Basket page.', () => {
         commonHelper.visibleWait(homePage.homeHeading);
     });
 
-    it('should present all required certificates on the Home page.', () => {
-    });
-
     it('should open details for a PositiveSSL certificate.', () => {
         homePage.clickCertInfo('PositiveSSL');
     });
 
     it('should be correct the PositiveSSL certificate information.', () => {
+        expect(certsPage.getCertTitle()).toEqual(certsData.PositiveSSL.title);
+        expect(certsPage.getCertPrice()).toEqual(certsData.PositiveSSL.price);
+        expect(certsPage.getCertSlogan()).toEqual(certsData.PositiveSSL.slogan);
     });
 
     it('should click on the Buy button.', () => {
@@ -68,8 +68,38 @@ describe('Basket page.', () => {
         expect(basketPage.getTxtStarts(1, certsData.PositiveSSL.stars).isDisplayed()).toBe(true);
     });
 
-    it('should set Quantity field equal to zero.', () => {
-        basketPage.clearQuantity(1);
+    it('should navigate to the Home page.', () => {
+        homePage.navHome();
+    });
+
+    it('should click Buy button on the PositiveSSL Wildcard certificate.', () => {
+        homePage.clickBuyProduct('PositiveSSL Wildcard');
+    });
+
+    it('should display the Basket screen with the PositiveSSL and PositiveSSL Wildcard certificate.', () => {
+        expect(basketPage.getTxtTitle(1)).toEqual(certsData.PositiveSSL.title);
+        expect(basketPage.getTxtPrice(1)).toEqual(certsData.PositiveSSL.price);
+        expect(basketPage.getTxtQuantity(1)).toEqual('1');
+        expect(basketPage.getTxtStarts(1, certsData.PositiveSSL.stars).isDisplayed()).toBe(true);
+        expect(basketPage.getTxtTitle(2)).toEqual(certsData.PositiveSSLWildcard.title);
+        expect(basketPage.getTxtPrice(2)).toEqual(certsData.PositiveSSLWildcard.price);
+        expect(basketPage.getTxtQuantity(2)).toEqual('1');
+        expect(basketPage.getTxtStarts(2, certsData.PositiveSSLWildcard.stars).isDisplayed()).toBe(true);
+    });
+
+    it('should remove the PositiveSSL certificate from the Basket.', () => {
+        basketPage.clearBasket(1);
+    });
+
+    it('should display the Basket screen only with the PositiveSSL Wildcard certificate.', () => {
+        expect(basketPage.getTxtTitle(1)).toEqual(certsData.PositiveSSLWildcard.title);
+        expect(basketPage.getTxtPrice(1)).toEqual(certsData.PositiveSSLWildcard.price);
+        expect(basketPage.getTxtQuantity(1)).toEqual('1');
+        expect(basketPage.getTxtStarts(1, certsData.PositiveSSLWildcard.stars).isDisplayed()).toBe(true);
+    });
+
+    it('should remove the PositiveSSL Wildcard certificate from the Basket.', () => {
+        basketPage.clearBasket(1);
     });
 
     it('should Basket be empty and "It’s empty. And hollow. And sad" text display.', () => {

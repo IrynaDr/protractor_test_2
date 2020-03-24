@@ -12,6 +12,12 @@ class CertsPage {
 
     this.btnBasketPageCheckout = $('.checkout-btn');
 
+    this.txtCertTitle = $('.page-title.ng-binding');
+
+    this.txtPrice = $('.domains .price-box');
+
+    this.txtSlogan = $('.slogan');
+
     }
     //--------------------------------------------------------------------------
     // Functions
@@ -20,6 +26,18 @@ class CertsPage {
     clickBuy () {
        this.btnBasket.click();
        commonHelper.visibleWait(this.btnBasketPageCheckout);
+    }
+
+    getCertTitle() {
+        return this.txtCertTitle.getText();
+    }
+
+    getCertPrice() {
+        return this.txtPrice.getText();
+    }
+
+    getCertSlogan() {
+        return this.txtSlogan.getText();
     }
 
 };

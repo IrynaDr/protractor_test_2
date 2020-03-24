@@ -48,7 +48,6 @@ class BasketPage {
 
     clearQuantity(index) {
         this.certEntry(index).$('[name="quantity_certificate"]').clear();
-        //commonHelper.visibleWait(this.txtEmptyBasket);
     }
 
 };
